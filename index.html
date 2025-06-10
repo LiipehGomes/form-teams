@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Formulário com Blocos</title>
+  <title>Formulário com Menu e Dropdown</title>
   <style>
     * {
       box-sizing: border-box;
@@ -26,15 +26,53 @@
       z-index: 1000;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
     .nav-links a {
       color: white;
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
+      position: relative;
     }
 
     .nav-links a:hover {
       text-decoration: underline;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      top: 40px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      z-index: 1001;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     .container {
@@ -97,7 +135,17 @@
     <nav class="nav-links">
       <a href="#">Home</a>
       <a href="#form">Form</a>
-      <a href="#blocks">Blocks</a>
+      <div class="dropdown">
+        <a href="#blocks">Blocks ▾</a>
+        <div class="dropdown-content">
+          <a href="#block1">Block 1</a>
+          <a href="#block2">Block 2</a>
+          <a href="#block3">Block 3</a>
+          <a href="#block4">Block 4</a>
+          <a href="#block5">Block 5</a>
+          <a href="#block6">Block 6</a>
+        </div>
+      </div>
       <a href="#">ISPs</a>
     </nav>
   </header>
@@ -115,27 +163,27 @@
   <section id="blocks">
     <h2 style="text-align: center;">Blocos</h2>
     <div class="block-grid">
-      <div class="block">
+      <div class="block" id="block1">
         <h3>Block 1</h3>
         <p>Conteúdo do bloco 1.</p>
       </div>
-      <div class="block">
+      <div class="block" id="block2">
         <h3>Block 2</h3>
         <p>Conteúdo do bloco 2.</p>
       </div>
-      <div class="block">
+      <div class="block" id="block3">
         <h3>Block 3</h3>
         <p>Conteúdo do bloco 3.</p>
       </div>
-      <div class="block">
+      <div class="block" id="block4">
         <h3>Block 4</h3>
         <p>Conteúdo do bloco 4.</p>
       </div>
-      <div class="block">
+      <div class="block" id="block5">
         <h3>Block 5</h3>
         <p>Conteúdo do bloco 5.</p>
       </div>
-      <div class="block">
+      <div class="block" id="block6">
         <h3>Block 6</h3>
         <p>Conteúdo do bloco 6.</p>
       </div>
