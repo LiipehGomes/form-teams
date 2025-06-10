@@ -2,11 +2,80 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Cadastro</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Formulário com Menu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #0078d4;
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 500px;
+      background-color: white;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #0078d4;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
 </head>
 <body>
-  <div class="form-box">
+
+  <header>
+    <div><strong>Meu Site</strong></div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Form</a>
+      <a href="#">Blocks</a>
+      <a href="#">ISPs</a>
+    </nav>
+  </header>
+
+  <div class="container">
     <h2>Cadastro</h2>
     <form id="form">
       <input type="text" placeholder="Nome" required>
@@ -15,6 +84,14 @@
     </form>
     <p id="msg"></p>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('msg').textContent = "Enviado com sucesso!";
+      this.reset();
+    });
+  </script>
+
 </body>
 </html>
