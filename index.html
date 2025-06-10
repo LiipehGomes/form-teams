@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Formulário com Menu</title>
+  <title>Formulário com Blocos</title>
   <style>
     * {
       box-sizing: border-box;
@@ -21,6 +21,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .nav-links a {
@@ -61,23 +64,47 @@
     button:hover {
       background-color: #005fa3;
     }
+
+    #blocks {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .block-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .block {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .block h3 {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <div><strong>Delivery Plan</strong></div>
+    <div><strong>Meu Site</strong></div>
     <nav class="nav-links">
       <a href="#">Home</a>
-      <a href="#">Form</a>
-      <a href="#">Blocks</a>
+      <a href="#form">Form</a>
+      <a href="#blocks">Blocks</a>
       <a href="#">ISPs</a>
     </nav>
   </header>
 
-  <div class="container">
+  <div class="container" id="form">
     <h2>Cadastro</h2>
-    <form id="form">
+    <form id="formulario">
       <input type="text" placeholder="Nome" required>
       <input type="email" placeholder="Email" required>
       <button type="submit">Enviar</button>
@@ -85,8 +112,38 @@
     <p id="msg"></p>
   </div>
 
+  <section id="blocks">
+    <h2 style="text-align: center;">Blocos</h2>
+    <div class="block-grid">
+      <div class="block">
+        <h3>Block 1</h3>
+        <p>Conteúdo do bloco 1.</p>
+      </div>
+      <div class="block">
+        <h3>Block 2</h3>
+        <p>Conteúdo do bloco 2.</p>
+      </div>
+      <div class="block">
+        <h3>Block 3</h3>
+        <p>Conteúdo do bloco 3.</p>
+      </div>
+      <div class="block">
+        <h3>Block 4</h3>
+        <p>Conteúdo do bloco 4.</p>
+      </div>
+      <div class="block">
+        <h3>Block 5</h3>
+        <p>Conteúdo do bloco 5.</p>
+      </div>
+      <div class="block">
+        <h3>Block 6</h3>
+        <p>Conteúdo do bloco 6.</p>
+      </div>
+    </div>
+  </section>
+
   <script>
-    document.getElementById('form').addEventListener('submit', function(e) {
+    document.getElementById('formulario').addEventListener('submit', function(e) {
       e.preventDefault();
       document.getElementById('msg').textContent = "Enviado com sucesso!";
       this.reset();
